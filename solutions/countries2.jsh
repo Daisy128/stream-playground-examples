@@ -8,7 +8,7 @@ countries.stream().anyMatch(country -> country.getName().toLowerCase().contains(
 
 // 2.Returns the first country name that contains the word island ignoring case.
 
-countries.stream().filter(country -> country.getName().toLowerCase().contains("island")).findFirst();
+countries.stream().filter(country -> country.getName().toLowerCase().contains("island")).map(Country::getName).findFirst();
 
 // 3.Prints each country name in which the first and the last letters are the same ignoring case.
 
@@ -37,7 +37,7 @@ countries.stream().sorted(Comparator.comparingInt(country -> country.getTimezone
 
 // 9.Returns the number of countries with no Spanish country name translation (the Spanish language is identified by the language code es).
 
-countries.stream().filter(country -> country.getTranslations().containsKey("es")).map(Country::getName).forEach(System.out::println);
+countries.stream().filter(country -> country.getTranslations().containsKey("es")).map(Country::getName).count();
 
 // 10.Prints the names of countries with null area.
 
